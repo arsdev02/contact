@@ -1,0 +1,35 @@
+.search-block {
+    padding-top: 20px;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.box__title{
+    text-transform: uppercase;
+    padding: 10px 0;
+}
+.box__item {
+    display: flex;
+    justify-content: space-between;
+}
+.box__item p {
+    cursor: pointer;
+}
+.box__item p:hover{
+    opacity: .8;
+}
+.box__item-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    row-gap: 5px;
+}
+.box__item-btns button {
+    cursor: pointer;
+}
+
