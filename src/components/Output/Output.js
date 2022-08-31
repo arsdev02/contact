@@ -1,11 +1,11 @@
 import React from 'react';
-import {deleteContactReducer, editContactReducer} from "../../redux/slicers/usersSlice";
-import {useDispatch, useSelector} from "react-redux";
+import { deleteContactReducer, editContactReducer } from "../../redux/slicers/usersSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 import './output.css'
 const Output = () => {
     const dispatch = useDispatch()
-    const {sortUserList, searchResults} = useSelector(state => state.users)
+    const { sortUserList, searchResults } = useSelector(state => state.users)
     const details = (data) => {
         alert(`
             name: ${data.name}
@@ -16,7 +16,7 @@ const Output = () => {
     return (
         <div className={'container'}>
             <div className={'search-block'}
-                 style={searchResults.length>0?{display:'flex'}:{display:'none'}}
+                style={searchResults.length > 0 ? { display: 'flex' } : { display: 'none' }}
             >
                 {searchResults && searchResults.map((el) => {
                     return (
@@ -24,10 +24,10 @@ const Output = () => {
                             className={'box'}
                             key={el.id}>
                             <div className="box__item">
-                                <p onClick={()=>details(el)}>{el.name}</p>
+                                <p onClick={() => details(el)}>{el.name}</p>
                                 <div className="box__item-btns">
-                                    <button onClick={() => dispatch(editContactReducer(el.id))}>edit</button>
-                                    <button onClick={() => dispatch(deleteContactReducer(el.id))}>delete</button>
+                                    <button className='btn-edit' onClick={() => dispatch(editContactReducer(el.id))}>edit</button>
+                                    <button className='btn-delete' onClick={() => dispatch(deleteContactReducer(el.id))}>delete</button>
                                 </div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@ const Output = () => {
             </div>
             <div
                 className={'contacts-block'}
-                style={searchResults.length>0?{display:'none'}:{display:'block'}}
+                style={searchResults.length > 0 ? { display: 'none' } : { display: 'block' }}
             >
                 {sortUserList && sortUserList.map((el, index) => {
                     return (
@@ -50,10 +50,10 @@ const Output = () => {
                                     <div
                                         className={'box__item'}
                                         key={item.id}>
-                                        <p onClick={()=>details(item)}>{item.name}</p>
+                                        <p onClick={() => details(item)}>{item.name}</p>
                                         <div className={'box__item-btns'}>
-                                            <button onClick={() => dispatch(editContactReducer(item.id))}>edit</button>
-                                            <button onClick={() => dispatch(deleteContactReducer(item.id))}>delete</button>
+                                            <button className='btn-edit' onClick={() => dispatch(editContactReducer(item.id))}>edit</button>
+                                            <button className='btn-delete' onClick={() => dispatch(deleteContactReducer(item.id))}>delete</button>
                                         </div>
                                     </div>
                                 )
